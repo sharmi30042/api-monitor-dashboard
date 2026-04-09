@@ -1,0 +1,104 @@
+/* --- THEME DEFINITIONS --- */
+:root {
+    /* Glassmorphism (Default) */
+    --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text: #ffffff;
+    --accent: #00d4ff;
+    --border: rgba(255, 255, 255, 0.2);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --blur: blur(15px);
+}
+
+[data-theme="cyber"] {
+    --bg: #050505;
+    --card-bg: #0f0f0f;
+    --text: #00ffcc;
+    --accent: #ff00ff;
+    --border: 1px solid #00ffcc;
+    --shadow: 0 0 15px #00ffcc33;
+    --blur: none;
+}
+
+[data-theme="minimal"] {
+    --bg: #f4f7f6;
+    --card-bg: #ffffff;
+    --text: #2d3436;
+    --accent: #0984e3;
+    --border: 1px solid #dfe6e9;
+    --shadow: 0 4px 6px rgba(0,0,0,0.05);
+    --blur: none;
+}
+
+/* --- MAIN STYLES --- */
+* { box-sizing: border-box; transition: all 0.3s ease; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    background-attachment: fixed;
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: var(--blur);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* --- INPUTS & BUTTONS --- */
+.input-group { display: flex; gap: 10px; }
+input, select {
+    padding: 12px;
+    border-radius: 10px;
+    border: var(--border);
+    background: rgba(255,255,255,0.05);
+    color: inherit;
+    flex: 1;
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--accent);
+}
+
+/* --- TABLE STYLES --- */
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th { text-align: left; border-bottom: 2px solid var(--border); padding: 10px; }
+td { padding: 12px; border-bottom: 1px solid var(--border); }
+
+/* Status Badges */
+.status-200 { color: #00ff88; font-weight: bold; text-shadow: 0 0 5px #00ff88; }
+.status-500 { color: #ff4d4d; font-weight: bold; text-shadow: 0 0 5px #ff4d4d; }
+
+/* --- MICRO-ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

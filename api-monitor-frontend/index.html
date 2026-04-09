@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced API Monitor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>🚀 Advanced API Monitor</h1>
+                <div class="theme-selector">
+                    <span>Interface:</span>
+                    <select id="themeSelect" onchange="applyTheme()">
+                        <option value="glass">Modern Glass</option>
+                        <option value="cyber">Cyberpunk Dark</option>
+                        <option value="minimal">Professional Light</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <section class="card input-section">
+            <div class="input-group">
+                <input type="text" id="apiUrl" placeholder="https://api.example.com">
+                <select id="apiMethod">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                </select>
+                <button onclick="runTest()" id="testBtn">Run Test</button>
+            </div>
+        </section>
+
+        <section class="card chart-section">
+            <h3>Performance Trends</h3>
+            <canvas id="performanceChart"></canvas>
+        </section>
+
+        <section class="card history-section">
+            <h3>History Logs</h3>
+            <div class="table-wrapper">
+                <table id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>URL</th>
+                            <th>Status</th>
+                            <th>Time (ms)</th>
+                            <th>Slow?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody"></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
